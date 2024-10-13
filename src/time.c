@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 15:41:41 by razaccar          #+#    #+#             */
-/*   Updated: 2024/10/07 01:59:30 by razaccar         ###   ########.fr       */
+/*   Updated: 2024/10/12 17:43:26 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_usleep(long useconds)
 
 	gettimeofday(&start, NULL);
 	while (get_diff(&start) < useconds)
-		usleep(10);
+		usleep(150);
 }
 
 long 	get_timestamp(long start_timestamp)
