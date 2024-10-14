@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 15:19:05 by razaccar          #+#    #+#             */
-/*   Updated: 2024/10/13 04:29:37 by razaccar         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:29:23 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,20 @@
 # define B_GREEN	"\033[1;32m"
 # define B_WHITE	"\033[1;37m"
 
-#define TAKING_FORK "🍴 has taken a fork\n"
-#define EATING "🍝 is eating\n"
-#define SLEEPING "💤 is sleeping\n"
-#define THINKING "🤔 is thinking\n"
-#define DEAD "💀 died\n"
+# define ERR_ARGS "Error, invalid arguments.\n"
+# define ERR_INIT "Error, initialisation failed.\n"
+# define USAGE "Usage : ./philo (uint)number_of_philos "
+# define USAGE_ARGS "(uint)time_to_die (uint)time_to_eat (uint)time_to_sleep "
+# define USAGE_OPT "[(uint)number_of_meals_to_eat]\n"
 
-typedef struct s_simulation t_simulation;
-typedef struct s_philo t_philo;
+# define TAKING_FORK "🍴 has taken a fork\n"
+# define EATING "🍝 is eating\n"
+# define SLEEPING "💤 is sleeping\n"
+# define THINKING "🤔 is thinking\n"
+# define DEAD "💀 died\n"
+
+typedef struct s_simulation	t_simulation;
+typedef struct s_philo		t_philo;
 
 struct s_philo
 {
@@ -60,7 +66,6 @@ struct s_simulation
 	pthread_mutex_t	printing;
 	pthread_mutex_t	monitoring;
 };
-
 
 /* SIMULATION */
 int		simulation_init(t_simulation *self, int argc, char **argv);

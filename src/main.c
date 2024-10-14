@@ -6,18 +6,12 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 03:12:58 by razaccar          #+#    #+#             */
-/*   Updated: 2024/10/08 18:40:21 by razaccar         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:29:51 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 #include <stdio.h>
-
-#define ERR_ARGS "Error, invalid arguments.\n"
-#define ERR_INIT "Error, initialisation failed.\n"
-#define USAGE "Usage : ./philo (uint)number_of_philo " \
-	"(uint)time_to_die (uint)time_to_eat (uint)time_to_sleep " \
-	"[(uint)number_of_meals_to_eat]\n"
 
 int	parse_args(int argc, char **argv)
 {
@@ -42,8 +36,8 @@ int	main(int argc, char **argv)
 
 	if (!parse_args(argc, argv))
 	{
-		printf("%s", ERR_ARGS); 
-		printf("%s", USAGE);
+		printf("%s", ERR_ARGS);
+		printf("%s%s%s", USAGE, USAGE_ARGS, USAGE_OPT);
 		return (1);
 	}
 	if (simulation_init(&simulation, argc, argv) != 0)

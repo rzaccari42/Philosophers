@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 01:34:12 by razaccar          #+#    #+#             */
-/*   Updated: 2024/10/07 16:38:38 by razaccar         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:15:10 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ int	ft_isdigit(int c)
 	return (c >= '0' && c <= '9');
 }
 
-int ft_isposnum(char *str)
+int	ft_isposnum(char *str)
 {
 	int	i;
-	
+
 	i = 0;
 	while (str[i])
 	{

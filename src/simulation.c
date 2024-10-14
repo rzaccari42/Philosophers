@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 14:42:22 by razaccar          #+#    #+#             */
-/*   Updated: 2024/10/12 18:15:41 by razaccar         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:15:26 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ void	simulation_free(t_simulation *self)
 {
 	int	i;
 
-	free(self->philos);
 	i = -1;
+	pthread_mutex_destroy(&self->monitoring);
 	while (++i < self->n_philos)
 		pthread_mutex_destroy(&self->forks[i]);
 	free(self->forks);
+	free(self->philos);
 }
 
 void	simulation_monitor(t_simulation *self)
@@ -59,7 +60,7 @@ void	*simulation_routine(void *data)
 		continue ;
 	if (self->id & 1)
 		ft_usleep(self->simulation->time_to_eat * 0.9 + 1);
-	while (1)
+	while (is_running(self->simulation))
 	{
 		philo_take_forks(self);
 		philo_eat(self);
@@ -86,6 +87,5 @@ void	simulation_run(t_simulation *self)
 	simulation_monitor(self);
 	i = -1;
 	while (++i < self->n_philos)
-		pthread_detach(self->philos[i].thread);
+		pthread_join(self->philos[i].thread, NULL);
 }
-

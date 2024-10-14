@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 14:19:31 by razaccar          #+#    #+#             */
-/*   Updated: 2024/10/12 17:19:08 by razaccar         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:13:57 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	philos_init(t_simulation *simulation)
 {
-	t_philo *philo;
+	t_philo	*philo;
 	int		i;
 
 	simulation->forks = malloc(simulation->n_philos * sizeof(pthread_mutex_t));
@@ -24,8 +24,8 @@ int	philos_init(t_simulation *simulation)
 		return (1);
 	i = -1;
 	while (++i < simulation->n_philos)
-		pthread_mutex_init(&simulation->forks[i], NULL);	
-	simulation->philos = malloc(simulation->n_philos * sizeof(t_philo));	
+		pthread_mutex_init(&simulation->forks[i], NULL);
+	simulation->philos = malloc(simulation->n_philos * sizeof(t_philo));
 	if (!simulation->philos)
 		return (1);
 	i = -1;

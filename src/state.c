@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:04:50 by razaccar          #+#    #+#             */
-/*   Updated: 2024/10/12 15:16:58 by razaccar         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:12:04 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static bool	is_full(t_philo	*philo)
 bool	is_everyone_full(t_simulation *simulation)
 {
 	int	i;
-	
+
 	i = -1;
 	while (++i < simulation->n_philos)
 	{
@@ -60,7 +60,6 @@ static bool	is_starving(t_philo	*philo)
 
 bool	is_someone_starving(t_simulation *simulation)
 {
-	long	timestamp;
 	int		i;
 
 	i = -1;
